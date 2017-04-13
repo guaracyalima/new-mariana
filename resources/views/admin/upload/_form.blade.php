@@ -15,7 +15,8 @@
 
     <div class="form-group">
 
-            {!! Form::file('path', null ,['class' => 'form-control']) !!}
+        {!! Form::file('path[]', array('multiple'=>true)) !!}
+        {{--{!! Form::file('path[]', null ,['multiple' => true,'class' => 'form-control']) !!}--}}
 
     </div>
 

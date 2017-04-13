@@ -43,15 +43,23 @@ class UploaderController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $file = $request->file('path');
-        if(is_object($file) and $file->isValid()){
-            $filename = time(). '-' . $file->getClientOriginalName();
-            $file = $file->move(public_path().'/img/uploads/', $filename);
-            $path = $filename;
-            $data['path']=$path;
-            $this->repository->create($data);
-        }
-        return redirect()->route('admin.upload');
+        $files = $request->file('path');
+
+        $file_count = count($files);
+
+        $uploadcount = 0;
+       foreach ($files as $file)
+       {
+           if(is_object($file) and $file->isValid()){ //verifico se o arquivo e valido
+               $filename = time(). '-' . $file->getClientOriginalName(); //cato o nome do arquivo
+               $file = $file->move(public_path().'/img/uploads/', $filename); //salvo nessa pasta
+               $path = $filename; //pego o path
+               $data['path']=$path; //coloco de volta no array
+               $this->repository->create($data); //salvo no banco
+               $uploadcount++; //repito o processo enquanto existir arquivo la
+           }
+       }
+        return redirect()->route('admin.upload'); //retorno a view
 
     }
 
