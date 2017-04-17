@@ -7,9 +7,8 @@
             <div class="portlet box red">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-cogs"></i>Imagens no sistema
+                        <i class="fa fa-cogs"></i>Album no sistema  {{ $album->name }}
                     </div>
-                    <a href="{{ route('admin.upload.create')}}" class="btn btn-success fileinput-button"><i class="glyphicon glyphicon-plus"></i><span>Nova imagem</span></a>
                     <div class="tools">
                         <a href="javascript:;" class="collapse">
                         </a>
@@ -39,27 +38,24 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($files as $file)
                                 <tr>
-                                    <td>{{$file->id}}</td>
-                                    <td>{{$file->name}}</td>
-                                    <td>{{$file->description}}</td>
+                                    <td>{{$album->id}}</td>
+                                    <td>{{$album->name}}</td>
+                                    <td>{{$album->description}}</td>
+                                    <td><img src="{{asset("img/uploads/$album->path")}}" alt="" width="100" height="100"></td>
+
+                                    @foreach($images as $item)
                                     <td>
-                                        <a href="{{ route('admin.upload.show', ['id' => $file->id]) }}">
-                                            {{--<a href="{{ route('admin.asset.show', ['album_id' => $file->id]) }}">--}}
-                                                <img src="{{asset("img/uploads/$file->path")}}" alt="" width="100" height="100">
-                                            {{--</a>--}}
-                                        </a>
+                                        <img src="{{asset("img/uploads/album/$item->img")}}" alt="" width="100" height="100">
                                     </td>
+                                    @endforeach
                                     <td>
 
-                                        <a href="{{ route('admin.upload.edit', ['id' => $file->id]) }}" class="btn btn-info btn-sm">Editar</a>
-                                        <a href="{{ route('admin.upload.destroy', ['id' => $file->id]) }}" class="btn btn-danger btn-sm">Deletar</a>
+                                        <a href="{{ route('admin.asset.create', ['album_id' => $album->id]) }}" class="btn btn-info btn-sm">Anexar imagens</a>
+                                        <a href="{{ route('admin.upload.destroy', ['id' => $album->id]) }}" class="btn btn-danger btn-sm">Deletar</a>
 
                                     </td>
                                 </tr>
-                            @endforeach
-
                             </tbody>
                         </table>
                     </div>

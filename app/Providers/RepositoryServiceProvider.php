@@ -27,5 +27,9 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\UploadRepository',
             'App\Repositories\UploadRepositoryEloquent'
         );
+        $this->app->bind(
+            'App\Repositories\AssetRepository',
+            'App\Repositories\AssetRepositoryEloquent'
+        );
     }
 }
