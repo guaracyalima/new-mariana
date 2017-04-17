@@ -28,7 +28,7 @@ class UploaderController extends Controller
     {
         return view('errors.404');
     }
-
+//sd8jiowasmijoqwasfiolmasfj0iowrhefdasijaoemldwfer0jidfosmlkdgehotinrslkma09gjoids
     public function index()
     {
         $files = $this->repository->paginate(10);
