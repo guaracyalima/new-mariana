@@ -18,6 +18,7 @@ class CreateUploadsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('path')->nullable();
+            $table->string('status')->default('active');
             $table->timestamps();
 		});
 	}

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class CheckRole
 {
@@ -18,11 +19,11 @@ class CheckRole
         //echo "Rodou Middleware";
 
         if (!Auth::check()){
-            return redirect('/auth/login');
+            return redirect('/login');
         }
         //if(Auth::user()->role <> "admin"){
         if(Auth::user()->role <> $role){
-            return redirect('/auth/login');
+            return redirect('/login');
         }
         return $next($request);
     }
