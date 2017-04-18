@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'FrontController@index');
+Route::get('/show/{id}', ['as' => 'show.show', 'uses' =>'FrontController@showGallry']);
+Route::post('/search', ['as' => 'search', 'uses' =>'FrontController@search']);
 
 Auth::routes();
 
@@ -32,4 +34,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function (){
     Route::get('asset/show/{album_id}', ['as' => 'asset.show', 'uses' =>'AssetsController@show']);
 
     Route::post('upload/search', ['as' => 'upload.search', 'uses' =>'FrontController@show']);
+
+    Route::get('users', ['as' => 'users', 'uses' =>'UsersController@show']);
+
 });

@@ -1,58 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Galeria de Imagens</title>
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+    <meta name="data" content="">
+    <meta name="author" content="">
+
+    <title>FotologEnfil</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body {
+            padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+
+        .portfolio-item {
+            margin-bottom: 25px;
+        }
+
+        footer {
+            margin: 50px 0;
+        }
+    </style>
+
 </head>
+
 <body>
-<div class="navbar navbar-default navbar-inverse navbar-static-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand"><img height="20" alt="Brand" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC"></a>
+            <a class="navbar-brand" href="#">FotologEnfil</a>
         </div>
-        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active">
-                    <a href="file:///C:/Users/guabirabaDev/AppData/Roaming/Skype/My%20Skype%20Received%20Files/galeria.html#">Admin</a>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{{ route('login') }}">Acesso</a>
                 </li>
             </ul>
         </div>
+        <!-- /.navbar-collapse -->
     </div>
-</div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-center">Galeria de Imagens<br></h1>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            @foreach($files as $file)
-                <div class="col-md-4">
-                    <a class="btn" data-toggle="modal" data-target="#galeria"><img src="{{asset("img/uploads/$file->path")}}" class="img-responsive"></a>
-                    <h3>{{ $file->name }}</h3>
-                    <p>{{ $file->description }}</p>
+    <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="container theme-showcase" role="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    {!! Form::open(['route' => 'search', 'files' => true, 'class' => 'form-inline']) !!}
+                    <div class="form-group">
+
+                    </div>
+                    {!! Form::input('date','date', null ,['class' => 'form-control']) !!}
+                    <div class="form-group">
+                        {!! Form::submit('Buscar', ['class' => 'btn btn-primary center-block']) !!}
+                    </div>
+                    {!! Form::close() !!}
                 </div>
-            @endforeach
-        </div>
-    </div>
-</div>
+            </div>
+            <br>
+
+            <div class="row">
+                @foreach($files as $file)
+                <div class="col-md-4 portfolio-item">
+                    <div class="panel panel-default">
+
+                        <img class="img-responsive" src="{{ asset("img/uploads/$file->path") }}">
+
+                        <p align="center"><b>{{ $file->name }}</b></p>
+                        <p align="center">{{date('d-m-Y', strtotime($file->created_at))}}</p>
+                        <p align="center">{{ $file->description }}</p>
+                        <p align="center">
+                            <a href="{{ url('show', ['id' => $file->id]) }}">
+                                Visualizar galeria
+                            </a>
+                        </p>
+                    </div>
+
+                </div>
+                @endforeach
+            </div>
+
+            {!! $files->render() !!}
+
 <footer class="section section-success">
     <div class="background-image"></div>
     <div class="container">
@@ -88,41 +140,9 @@
         </div>
     </div>
 </footer>
-
-@foreach($files as $file)
-<div class="modal fade" id="galeria">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                <div id="fullcarousel-example" data-interval="false" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="{{asset("img/uploads/$file->path")}}">
-                            <div class="carousel-caption">
-                                <h2>{{$file->name}}</h2>
-                                <p>{{$file->description}}</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="{{asset("img/uploads/$file->path")}}">
-                            <div class="carousel-caption">
-                                <h2>{{$file->name}}</h2>
-                                <p>{{$file->description}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="left carousel-control" href="#" data-slide="prev"><i class="icon-prev fa fa-angle-left"></i></a>
-                    <a class="right carousel-control" href="#" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
-                </div>
-            </div>
+</div>
         </div>
     </div>
-</div>
-    @endforeach
 
-
-</body></html>
+</body>
+</html>

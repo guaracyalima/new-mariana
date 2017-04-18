@@ -65,19 +65,35 @@
 			<!-- END PAGE ACTIONS -->
 			<!-- BEGIN PAGE TOP -->
 			<div class="page-top">
-				<!-- BEGIN HEADER SEARCH BOX -->
-				<!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-				<form class="search-form" action="extra_search.html" method="GET">
-					<div class="input-group">
-						<input type="text" class="form-control input-sm" placeholder="Buscar..." name="query">
-						<span class="input-group-btn">
-						<a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
-						</span>
-					</div>
-				</form>
-				<!-- END HEADER SEARCH BOX -->
-				<!-- BEGIN TOP NAVIGATION MENU -->
+
 				<div class="top-menu">
+					<ul class="nav navbar-nav navbar-right">
+						<!-- Authentication Links -->
+						@if (Auth::guest())
+							<li><a href="{{ route('login') }}">Login</a></li>
+							<li><a href="{{ route('register') }}">Register</a></li>
+						@else
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+									{{ Auth::user()->name }} <span class="caret"></span>
+								</a>
+
+								<ul class="dropdown-menu" role="menu">
+									<li>
+										<a href="{{ route('logout') }}"
+										   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+											Logout
+										</a>
+
+										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+											{{ csrf_field() }}
+										</form>
+									</li>
+								</ul>
+							</li>
+						@endif
+					</ul>
 				</div>
 				<!-- END TOP NAVIGATION MENU -->
 			</div>
@@ -97,7 +113,7 @@
 
 				<ul class="page-sidebar-menu page-sidebar-menu-hover-submenu1" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
 					<li class="heading">
-						<h3>Frigomil Admin</h3>
+						<h3></h3>
 					</li>
 					<li class="active">
 						<a href="{{ url('admin/home') }}">
@@ -105,7 +121,25 @@
 						<span class="title">Dashboard</span>
 						</a>
 					</li>
-					{{--Produtos--}}
+
+					<li>
+						<a href="javascript:;">
+							<i class="icon-rocket"></i>
+							<span class="title">Usuarios</span>
+							<span class="arrow "></span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="{{ route('register') }}">
+									<span class="badge badge-roundless badge-danger"></span>Cadastro</a>
+							</li>
+							<li>
+								<a href="{{ route('admin.users') }}">
+									<span class="badge badge-roundless badge-danger"></span>Listagem</a>
+							</li>
+						</ul>
+					</li>
+
 					<li>
 						<a href="javascript:;">
 							<i class="icon-rocket"></i>
@@ -192,9 +226,6 @@
 		   // Index.init(); // init index page
 		 	//Tasks.initDashboardWidget(); // init tash dashboard widget
 		});
-
-
-
 
 	</script>
 		<script>
