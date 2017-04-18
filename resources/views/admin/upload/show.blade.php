@@ -1,67 +1,36 @@
-@extends('layouts.index')
+@extends('layouts.app')
 
-@section('conteudo')
-    <div class="row">
-        <div class="col-md-12">
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Galeria de Imagens Enfil - {{ $album->name }}<br></h1>
+            </div>
+            <div class="col-md-12">
+                <a href="{{ route('admin.upload') }}" class="btn btn-primary btn-sm">Voltar</a>
+                <a href="{{ route('admin.asset.create', ['album_id' => $album->id]) }}" class="btn btn-info btn-sm">Anexar imagens</a>
+            </div>
 
-            <div class="portlet box red">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-cogs"></i>Album no sistema  {{ $album->name }}
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        {{--<img src="{{asset("img/uploads/$album->path")}}" alt="" width="100" height="100">--}}
                     </div>
-                    <div class="tools">
-                        <a href="javascript:;" class="collapse">
-                        </a>
-                        <a href="#portlet-config" data-toggle="modal" class="config">
-                        </a>
-                        <a href="javascript:;" class="reload">
-                        </a>
-                        <a href="javascript:;" class="remove">
-                        </a>
+                    <br>
+
+                    <div class="container">
+                    <div class="owl-carousel owl-theme">
+                        @foreach($images as $item)
+                            <div class="item">
+                                <a href="" data-lightbox="img">
+                                    <img src="{{asset("img/uploads/album/$item->img")}}" width="400" height="480" class="image-responsive">
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
-                </div>
-                <div class="portlet-body">
-                    <div class="table-scrollable">
-                        <table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th>
-                                    #
-                                </th>
-                                <th>
-                                    Nome
-                                </th>
-
-                                <th>
-                                    Arquivo
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{$album->id}}</td>
-                                    <td>{{$album->name}}</td>
-                                    <td>{{$album->description}}</td>
-                                    <td><img src="{{asset("img/uploads/$album->path")}}" alt="" width="100" height="100"></td>
-
-                                    @foreach($images as $item)
-                                    <td>
-                                        <img src="{{asset("img/uploads/album/$item->img")}}" alt="" width="100" height="100">
-                                    </td>
-                                    @endforeach
-                                    <td>
-
-                                        <a href="{{ route('admin.asset.create', ['album_id' => $album->id]) }}" class="btn btn-info btn-sm">Anexar imagens</a>
-                                        <a href="{{ route('admin.upload.destroy', ['id' => $album->id]) }}" class="btn btn-danger btn-sm">Deletar</a>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
-            <!-- END SAMPLE TABLE PORTLET-->
         </div>
     </div>
 @endsection

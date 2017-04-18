@@ -25,17 +25,15 @@
 <link href="{{ asset('admin/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('admin/assets/global/plugins/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('admin/assets/global/plugins/jqvmap/jqvmap/jqvmap.css') }}" rel="stylesheet" type="text/css"/>
-<!-- END PAGE LEVEL PLUGIN STYLES -->
-<!-- BEGIN PAGE STYLES -->
-<link href="{{ asset('admin/assets/admin/pages/css/tasks.css') }}" rel="stylesheet" type="text/css"/>
-<!-- END PAGE STYLES -->
-<!-- BEGIN THEME STYLES -->
-<!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
+
 <link href="{{ asset('admin/assets/global/css/components-rounded.css') }}" id="style_components" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('admin/assets/global/css/plugins.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('admin/assets/admin/layout4/css/layout.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('admin/assets/admin/layout4/css/themes/default.css') }}" rel="stylesheet" type="text/css" id="style_color"/>
 <link href="{{ asset('admin/assets/admin/layout4/css/custom.css ') }}" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/owl.theme.default.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/lightbox.min.css') }}">
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>
 </head>
@@ -48,7 +46,7 @@
 			<!-- BEGIN LOGO -->
 			<div class="page-logo">
 				<a href="index.html">
-				<img src="{{ asset('img/logo.png') }}" alt="logo" class="logo-default" width="300" height="40"/>
+				{{--<img src="{{ asset('img/logo.png') }}" alt="logo" class="logo-default" width="300" height="40"/>--}}
 				</a>
 				<div class="menu-toggler sidebar-toggler">
 					<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
@@ -179,18 +177,46 @@
 	<script src="{{ asset('admin/assets/global/scripts/metronic.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('admin/assets/admin/layout4/scripts/layout.js')}}" type="text/javascript"></script>
 	<script src="{{ asset('admin/assets/admin/layout4/scripts/demo.js')}}" type="text/javascript"></script>
-	<script src="{{ asset('admin/assets/admin/pages/scripts/index3.js')}}" type="text/javascript"></script>
-	<script src="{{ asset('admin/assets/admin/pages/scripts/tasks.js') }}" type="text/javascript"></script>
+
+	{{--<script src="{{ asset('js/lightbox-plus-jquery.min.js') }}" type="text/javascript"></script>--}}
+
+		<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+		<script src="{{ asset('js/lightbox.min.js') }}"></script>
+
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<script>
 		jQuery(document).ready(function() {    
 		   	Metronic.init(); // init metronic core componets
 		   	Layout.init(); // init layout
 		   	Demo.init(); // init demo features 
-		    Index.init(); // init index page
-		 	Tasks.initDashboardWidget(); // init tash dashboard widget  
+		   // Index.init(); // init index page
+		 	//Tasks.initDashboardWidget(); // init tash dashboard widget
 		});
+
+
+
+
 	</script>
+		<script>
+			$('.owl-carousel').owlCarousel({
+				loop:true,
+				margin:10,
+				nav:true,
+				singleItem: true,
+				responsive:{
+					0:{
+						items:0
+					},
+					600:{
+						items:1
+					},
+					1000:{
+						items:1,
+
+					}
+				}
+			})
+		</script>
 	<!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->

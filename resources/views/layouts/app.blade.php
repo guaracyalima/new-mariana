@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.css') }}">
 
     <!-- Scripts -->
     <script>
@@ -82,6 +84,28 @@
     </div>
 
     <!-- Scripts -->
+    <script src=" {{ asset('admin/assets/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            singleItem: true,
+            responsive:{
+                0:{
+                    items:0
+                },
+                600:{
+                    items:1
+                },
+                1000:{
+                    items:1,
+
+                }
+            }
+        })
+    </script>
 </body>
 </html>
