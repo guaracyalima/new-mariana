@@ -6,7 +6,23 @@
 
             <div class="container">
                 <h3 class="text-center">Albuns de images</h3>
-                <a href="{{ route('admin.upload.create')}}" class="btn btn-success fileinput-button"><i class="glyphicon glyphicon-plus"></i><span>Nova imagem</span></a>
+                <div class="row">
+                   <div class="col-md-6">
+                       <a href="{{ route('admin.upload.create')}}" class="btn btn-success fileinput-button"><i class="glyphicon glyphicon-plus"></i><span>Nova imagem</span></a>
+                   </div>
+                    <div class="col-md-6">
+                        {!! Form::open(['route' => 'admin.upload.search', 'files' => true, 'class' => '']) !!}
+                            <div class="form-group">
+                                {!! Form::input('date','date', null ,['class' => 'form-control']) !!}
+                            </div>
+                            <div class="form-group">
+                                {!! Form::submit('Buscar', ['class' => 'btn btn-primary center-block']) !!}
+                            </div>
+                        {!! Form::close() !!}
+                    </div>
+
+                </div>
+                <br>
                 <br>
             </div>
             <div class="row">
@@ -16,6 +32,7 @@
                             <a href="{{ route('admin.upload.show', ['id' => $file->id]) }}">
                                 <img src="{{asset("img/uploads/$file->path")}}" alt="">
                             </a>
+
 
                         <div class="caption">
                             <h4 class="text-center"><b>{{$file->name}}</b></h4>

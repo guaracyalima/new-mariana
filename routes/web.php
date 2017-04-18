@@ -30,4 +30,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function (){
     Route::get('asset/create/{id}', ['as' => 'asset.create', 'uses' =>'AssetsController@create']);
     Route::post('asset/store', ['as' => 'asset.store', 'uses' =>'AssetsController@store']);
     Route::get('asset/show/{album_id}', ['as' => 'asset.show', 'uses' =>'AssetsController@show']);
+
+    Route::post('upload/search', ['as' => 'upload.search', 'uses' =>'FrontController@show']);
 });
