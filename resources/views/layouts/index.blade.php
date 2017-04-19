@@ -133,7 +133,7 @@
 						</a>
 						<ul class="sub-menu">
 							<li>
-								<a href="{{ route('register') }}">
+								<a href="{{ route('admin.users.create') }}">
 									<span class="badge badge-roundless badge-danger"></span>Cadastro</a>
 							</li>
 							<li>
@@ -152,7 +152,8 @@
 						<ul class="sub-menu">
 							<li>
 								<a href="{{ url('/admin/upload') }}">
-									<span class="badge badge-roundless badge-danger"></span>Imagens</a>
+									<span class="badge badge-roundless badge-danger"></span>Imagens
+								</a>
 							</li>
 						</ul>
 					</li>

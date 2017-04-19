@@ -17,6 +17,7 @@
                         <th>#</th>
                         <th>Nome</th>
                         <th>Email</th>
+                        <th>Nivel de acesso</th>
                         <th>Data de cadastro</th>
                     </tr>
                 </thead>
@@ -26,6 +27,7 @@
                         <td>{{$file->id}}</td>
                         <td>{{$file->name}}</td>
                         <td>{{$file->email}}</td>
+                        <td>{{$file->role}}</td>
                         <td>{{date('d-m-Y', strtotime($file->created_at))}}</td>
                     </tr>
                 @endforeach

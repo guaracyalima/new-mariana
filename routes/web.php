@@ -35,5 +35,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth.checkrole:admin', 'as' =
     Route::post('upload/search', ['as' => 'upload.search', 'uses' =>'FrontController@show']);
 
     Route::get('users', ['as' => 'users', 'uses' =>'UsersController@show']);
+    Route::get('users/create', ['as' => 'users.create', 'uses' =>'UsersController@create']);
+    Route::post('users/store', ['as' => 'users.store', 'uses' =>'UsersController@store']);
 
 });
