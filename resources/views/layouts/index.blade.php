@@ -119,7 +119,7 @@
 
 						@if(Auth::user()->role == "admin")
 					<li class="active">
-						<a href="{{ url('admin/home') }}">
+						<a href="{{ url('/home') }}">
 						<i class="icon-home"></i>
 						<span class="title">Dashboard</span>
 						</a>
@@ -151,7 +151,7 @@
 						</a>
 						<ul class="sub-menu">
 							<li>
-								<a href="#">
+								<a href="{{ url('/admin/upload') }}">
 									<span class="badge badge-roundless badge-danger"></span>Imagens</a>
 							</li>
 						</ul>
