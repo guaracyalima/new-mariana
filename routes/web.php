@@ -37,5 +37,6 @@ Route::group(['prefix' => 'admin','middleware' => 'auth.checkrole:admin', 'as' =
     Route::get('users', ['as' => 'users', 'uses' =>'UsersController@show']);
     Route::get('users/create', ['as' => 'users.create', 'uses' =>'UsersController@create']);
     Route::post('users/store', ['as' => 'users.store', 'uses' =>'UsersController@store']);
+    Route::get('users/destroy/{user}', ['as' => 'users.destroy', 'uses' =>'UsersController@destroy']);
 
 });

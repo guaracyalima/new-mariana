@@ -27,6 +27,11 @@ class UsersController extends Controller
     {
         $users = DB::table('users')->get();
         return view('admin.users.index', compact('users'));
-        //return $album;
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect()->route('admin.upload');
     }
 }

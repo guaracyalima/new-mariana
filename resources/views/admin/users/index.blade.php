@@ -19,6 +19,7 @@
                         <th>Email</th>
                         <th>Nivel de acesso</th>
                         <th>Data de cadastro</th>
+                        <th>Acao</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,9 @@
                         <td>{{$file->email}}</td>
                         <td>{{$file->role}}</td>
                         <td>{{date('d-m-Y', strtotime($file->created_at))}}</td>
+                        <td>
+                            <a href="{{ route('admin.users.destroy', ['id' => $file->id]) }}" class="btn btn-danger btn-sm">Deletar</a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
