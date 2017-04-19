@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Admin root',
             'email' => 'root@user.com',
             'password' => bcrypt(123456),
-            'role' => 'root',
+            'role' => 'admin',
             'remember_token' => str_random(10)]);
 
         factory(User::class)->create([

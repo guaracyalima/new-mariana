@@ -115,6 +115,9 @@
 					<li class="heading">
 						<h3></h3>
 					</li>
+					@if(Auth::user())
+
+						@if(Auth::user()->role == "admin")
 					<li class="active">
 						<a href="{{ url('admin/home') }}">
 						<i class="icon-home"></i>
@@ -153,6 +156,10 @@
 							</li>
 						</ul>
 					</li>
+						@elseif(Auth::user()->role == "common")
+							<li><a href="{{ url('/') }}">Home</a></li>
+						@endif
+						@endif
 				</ul>
 				<!-- END SIDEBAR MENU -->
 			</div>
@@ -169,7 +176,7 @@
 	<!-- BEGIN FOOTER -->
 	<div class="page-footer">
 		<div class="page-footer-inner">
-			2017 &copy; Mangue Tecnologia.
+			2017 &copy; guabirabaDev
 		</div>
 		<div class="scroll-to-top">
 			<i class="icon-arrow-up"></i>
