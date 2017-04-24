@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'admin','middleware' => 'auth.checkrole:admin', 'as' => 'admin.'], function (){
+Route::group(['prefix' => 'admin','middleware' => 'auth.checkrole:moderator', 'middleware' => 'auth.checkrole:admin', 'as' => 'admin.'], function (){
     Route::get('upload', ['as' => 'upload', 'uses' =>'UploaderController@index']);
     Route::get('upload/create', ['as' => 'upload.create', 'uses' =>'UploaderController@create']);
     Route::get('upload/edit/{id}', ['as' => 'upload.edit', 'uses' =>'UploaderController@edit']);

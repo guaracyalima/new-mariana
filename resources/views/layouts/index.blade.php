@@ -117,7 +117,7 @@
 					</li>
 					@if(Auth::user())
 
-						@if(Auth::user()->role == "admin")
+						@if( Auth::user()->role == "admin" || Auth::user()->role == "moderator")
 					<li class="active">
 						<a href="{{ url('/home') }}">
 						<i class="icon-home"></i>

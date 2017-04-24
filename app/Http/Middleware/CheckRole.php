@@ -16,12 +16,12 @@ class CheckRole
      */
     public function handle($request, Closure $next, $role)
     {
-        //echo "Rodou Middleware";
+        
 
         if (!Auth::check()){
             return redirect('/login');
         }
-        //if(Auth::user()->role <> "admin"){
+        
         if(Auth::user()->role <> $role){
             return redirect('/login');
         }

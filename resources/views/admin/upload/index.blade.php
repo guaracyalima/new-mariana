@@ -5,7 +5,7 @@
         <div class="col-md-12">
 
             <div class="container">
-                <h3 class="text-center">Albuns de images</h3>
+                <h3 class="text-center">Albuns de imagens</h3>
                 <div class="row">
                    <div class="col-md-6">
                        <a href="{{ route('admin.upload.create')}}" class="btn btn-success fileinput-button"><i class="glyphicon glyphicon-plus"></i><span>Nova imagem</span></a>

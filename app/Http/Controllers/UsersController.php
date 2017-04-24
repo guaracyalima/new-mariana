@@ -12,15 +12,19 @@ class UsersController extends Controller
     public function create()
     {
         $rolers = ['' => 'selecione um...', 'common' => 'common', 'admin' => 'admin',  'moderator' => 'moderator'];
+        
         return view('auth.register', compact('rolers'));
     }
 
     public function store(Request $request)
     {
+
         $data = $request->all();
         $data['password'] = bcrypt($data['password']);
+        //dd($data);
         $user = User::create($data);
-        return redirect()->route('admin.upload');
+       return redirect()->route('admin.upload');
+       // return $user;
     }
 
     public function show(Request $request)
